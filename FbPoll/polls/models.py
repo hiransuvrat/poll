@@ -7,12 +7,13 @@ class Question(models.Model):
 	pubDate = models.DateTimeField('date published')
 
 	def __str__(self):
-	    return self.questionTxt
+        return self.questionTxt
+
 
 class Choice(models.Model):
-	question = models.ForeignKey(Question, on_delete=models.CASCADE)
-	votes = models.IntegerField(default=0)
-	choiceTxt = models.CharField(max_length=50, default='Yes')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    votes = models.IntegerField(default=0)
+    choiceTxt = models.CharField(max_length=50, default='Yes')
 
-	def __str__(self):
-	    return self.choiceTxt
+    def __str__(self):
+        return self.choiceTxt
