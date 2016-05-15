@@ -5,11 +5,11 @@ from django.template import loader
 
 def index(request):
     questionList = Question.objects.all()
-    template = loader.get_template('polls/index.html')
+    #template = loader.get_template('polls/index.html')
     context = {
         'questionList': questionList,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'polls/index.html', context)
 
 
 def detail(request, questionId):
