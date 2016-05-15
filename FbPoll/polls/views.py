@@ -3,7 +3,13 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    questionList = Question.objects.all()
+    template = loader.get_template('polls/index.html')
+    context = {
+        'questionList': questionList,
+    }
+    return HttpResponse(template.render(context, request))
+
 
 def detail(request, questionId):
     return HttpResponse("You're looking at question %s." % questionId)
