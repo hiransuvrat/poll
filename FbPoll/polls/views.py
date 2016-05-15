@@ -10,9 +10,9 @@ def index(request):
     }
     return render(request, 'polls/index.html', context)
 
-def detail(request, question_id):
+def detail(request, questionId):
     try:
-        question = Question.objects.get(pk=question_id)
+        question = Question.objects.get(pk=questionId)
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
     return render(request, 'polls/detail.html', {'question': question})
