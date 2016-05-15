@@ -7,7 +7,7 @@ class Question(models.Model):
 	pubDate = models.DateTimeField('date published')
 
 	def __str__(self):
-	return self.questionTxt
+	    return self.questionTxt
 
 class Choice(models.Model):
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -15,4 +15,4 @@ class Choice(models.Model):
 	choiceTxt = models.CharField(max_length=50, default='Yes')
 
 	def __str__(self):
-	return self.choiceTxt 
+	    return self.choiceTxt
